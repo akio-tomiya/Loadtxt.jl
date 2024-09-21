@@ -16,7 +16,7 @@ You can load the file like,
 ```julia
 julia> fname = "Plaquette.txt"
 julia> loadtxt(fname)
-5×2 adjoint(::Matrix{Float64}) with eltype Float64:
+6×2 adjoint(::Matrix{Float64}) with eltype Float64:
    0.0  1.0
    1.0  0.685438
    2.0  0.611202
@@ -28,7 +28,7 @@ julia> loadtxt(fname)
 ```julia
 julia> data = loadtxt(fname)
 julia> data[:,2]
-5-element Vector{Float64}:
+6-element Vector{Float64}:
  1.0
  0.6854375345806106
  0.6112020484663069
