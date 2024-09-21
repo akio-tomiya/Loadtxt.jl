@@ -1,0 +1,4 @@
+name = "Loadtxt"
+uuid = "e7839add-dba9-4e34-9836-c052f801c80f"
+authors = ["Akio TOMIYA <akio.tomiya@hotmail.com>"]
+version = "0.1.0"
