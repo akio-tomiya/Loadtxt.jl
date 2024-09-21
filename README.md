@@ -13,7 +13,7 @@ Let us consider a file ``Plaquette.txt`` is like,
 and you can load this file *a la* numpy loadtxt.
 
 You can load the file like,
-```
+```julia
 julia> fname = "Plaquette.txt"
 julia> loadtxt(fname)
 5×2 adjoint(::Matrix{Float64}) with eltype Float64:
@@ -25,7 +25,7 @@ julia> loadtxt(fname)
    5.0  0.5645
 ```
 
-```
+```julia
 julia> data = loadtxt(fname)
 julia> data[:,2]
 5-element Vector{Float64}:
@@ -38,7 +38,7 @@ julia> data[:,2]
 ```
 
 If you want to make a plot of this file,
-```
+```julia
 julia> using Plots
 julia> plot(data[:,1],data[:,2])
 ```
