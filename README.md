@@ -44,9 +44,7 @@ julia> plot(data[:,1],data[:,2])
 ```
 
 # Details
-Here is the continuation of your `README.md` with a detailed explanation of the function's arguments and default behavior:
 
-```markdown
 ## Function Arguments and Default Behavior
 
 ### `loadtxt(fname::AbstractString; dtype::DataType=Float64, comments::Union{AbstractString, Char}="#", delimiter::Union{Nothing, AbstractString, Char}=nothing, converters::Dict{Int, Function}=Dict{Int, Function}(), skiprows::Int=0, usecols::Union{Nothing, Vector{Int}}=nothing, unpack::Bool=false, ndmin::Int=0, max_rows::Union{Nothing, Int}=nothing)`
@@ -113,6 +111,3 @@ julia> data = loadtxt(fname, ndmin=2)
 ```
 
 By customizing these arguments, `loadtxt` allows you to handle a wide range of file formats and data structures, making it a versatile tool for loading data in Julia.
-```
-
-This extended explanation provides detailed guidance on how to use the `loadtxt` function, covering each argument's purpose and how to customize the function to suit various needs.
