@@ -40,3 +40,9 @@ julia> data[:,2]
  0.5755750821561645
  0.5644999193762664
 ```
+
+If you want to make a plot of this file,
+```
+julia> using Plots
+julia> plot(data[:,1],data[:,2])
+```
