@@ -14,6 +14,7 @@ and you can load this file *a la* numpy loadtxt.
 
 You can load the file like,
 ```julia
+julia> using Loadtxt
 julia> fname = "Plaquette.txt"
 julia> loadtxt(fname)
 6×2 adjoint(::Matrix{Float64}) with eltype Float64:
