@@ -40,7 +40,17 @@ julia> data[:,2]
 If you want to make a plot of this file,
 ```julia
 julia> using Plots
-julia> plot(data[:,1],data[:,2])
+julia> x,y = data[:,1],data[:,2]
+julia> plot(x,y)
+```
+
+# Install and usage
+```julia
+import Pkg;Pkg.add("https://github.com/akio-tomiya/Loadtxt.jl")
+```
+and
+```julia
+using Loadtxt
 ```
 
 # Details
