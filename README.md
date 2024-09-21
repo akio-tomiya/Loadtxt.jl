@@ -16,7 +16,7 @@ This is a package for loading a file like
 ```
 a la numpy loadtxt.
 
-``
+```
 fname = "Plaquette.txt"
 loadtxt(fname)
-``
+```
