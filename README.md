@@ -1,8 +1,7 @@
 # Loadtxt.jl
-This is a package for loading a file like
+This is a package for loading a file.
 
-
-A file ``Plaquette.txt`` is like,
+Let us consider a file ``Plaquette.txt`` is like,
 ```
 0  1.0 # plaq
 1  0.6854375345806106 # plaq
@@ -13,12 +12,9 @@ A file ``Plaquette.txt`` is like,
 ```
 and you can load this file *a la* numpy loadtxt.
 
+You will get
 ```
-fname = "Plaquette.txt"
-loadtxt(fname)
-```
-then, you will get
-```
+julia> fname = "Plaquette.txt"
 julia> loadtxt(fname)
 5×2 adjoint(::Matrix{Float64}) with eltype Float64:
    0.0  1.0
