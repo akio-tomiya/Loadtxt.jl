@@ -111,3 +111,5 @@ julia> data = loadtxt(fname, ndmin=2)
 ```
 
 By customizing these arguments, `loadtxt` allows you to handle a wide range of file formats and data structures, making it a versatile tool for loading data in Julia.
+
+To make this package, I used ChatGPT.
