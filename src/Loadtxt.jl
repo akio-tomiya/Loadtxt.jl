@@ -1,5 +1,5 @@
 module Loadtxt
-
+export loadtxt
 function loadtxt(
     fname::AbstractString;
     dtype::DataType = Float64,
