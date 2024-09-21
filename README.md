@@ -46,7 +46,7 @@ julia> plot(x,y)
 
 # Install and usage
 ```julia
-import Pkg;Pkg.add("https://github.com/akio-tomiya/Loadtxt.jl")
+import Pkg;Pkg.add(path="https://github.com/akio-tomiya/Loadtxt.jl")
 ```
 and
 ```julia
