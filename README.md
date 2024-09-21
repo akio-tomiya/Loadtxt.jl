@@ -32,7 +32,7 @@ julia> loadtxt(fname)
 ```
 julia> data = loadtxt(fname)
 julia> data[:,2]
-502-element Vector{Float64}:
+5-element Vector{Float64}:
  1.0
  0.6854375345806106
  0.6112020484663069
