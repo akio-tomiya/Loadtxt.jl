@@ -12,7 +12,7 @@ Let us consider a file ``Plaquette.txt`` is like,
 ```
 and you can load this file *a la* numpy loadtxt.
 
-You will get
+You can load the file like,
 ```
 julia> fname = "Plaquette.txt"
 julia> loadtxt(fname)
