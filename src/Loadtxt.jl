@@ -1,5 +1,6 @@
 module Loadtxt
 export loadtxt
+
 function loadtxt(
     fname::AbstractString;
     dtype::DataType = Float64,
@@ -12,20 +13,20 @@ function loadtxt(
     ndmin::Int = 0,
     max_rows::Union{Nothing, Int} = nothing
 )
-    # comments と delimiter を String 型に変換
+    # Convert comments and delimiter to String type
     comments = String(comments)
     delimiter = delimiter === nothing ? nothing : String(delimiter)
     
     data = Vector{Vector{dtype}}()
     
-    # ファイルを読み込む
+    # Read the file
     lines = open(fname, "r") do file
         readlines(file)
     end
     
-    # スキップする行を削除（括弧で囲む）
+    # Remove skipped rows (enclosed in parentheses)
     if skiprows > 0
-        # skiprows がファイルの行数を超えないようにチェック
+        # Check that skiprows does not exceed the number of lines in the file
         if skiprows >= length(lines)
             return Array{dtype}(undef, 0, 0)
         end
@@ -35,20 +36,20 @@ function loadtxt(
     row_count = 0
     
     for line in lines
-        # max_rowsを確認
+        # Check max_rows
         if max_rows !== nothing && row_count >= max_rows
             break
         end
     
-        # 行の前後の空白を削除
+        # Trim whitespace from both ends of the line
         line = strip(line)
     
-        # 空行またはコメント行をスキップ
+        # Skip empty lines or comment lines
         if isempty(line) || startswith(line, comments)
             continue
         end
     
-        # 行内のコメントを削除
+        # Remove comments within the line
         comment_pos = findfirst(comments, line)
         if comment_pos !== nothing
             if isa(comment_pos, UnitRange)
@@ -62,20 +63,20 @@ function loadtxt(
             continue
         end
     
-        # デリミタで分割
+        # Split by delimiter
         if delimiter === nothing
             fields = split(line)
         else
             fields = split(line, delimiter)
         end
     
-        # 必要な列を選択
+        # Select necessary columns
         if usecols !== nothing
-            # usecols は 1始まりなので、範囲内かチェック
+            # usecols is 1-based, so check the range
             fields = [fields[i] for i in usecols if 1 ≤ i <= length(fields)]
         end
     
-        # コンバータと型変換を適用
+        # Apply converters and type conversion
         parsed_fields = Vector{dtype}()
         for (i, field) in enumerate(fields)
             value = ""
@@ -83,13 +84,13 @@ function loadtxt(
                 try
                     value = converters[i](field)
                 catch e
-                    error("コンバータでの変換に失敗しました: 列 $i の値 '$field'")
+                    error("Failed to convert with the converter: Value '$field' in column $i")
                 end
             else
                 try
                     value = parse(dtype, field)
                 catch e
-                    error("データのパースに失敗しました: 列 $i の値 '$field'")
+                    error("Failed to parse data: Value '$field' in column $i")
                 end
             end
             push!(parsed_fields, value)
@@ -99,15 +100,15 @@ function loadtxt(
         row_count += 1
     end
     
-    # データを配列に変換
+    # Convert data to an array
     if isempty(data)
         return Array{dtype}(undef, 0, 0)
     end
     
-    # 2次元配列に変換
+    # Convert to a 2D array
     data_array = hcat(data...)'
     
-    # ndminを適用
+    # Apply ndmin
     while ndims(data_array) < ndmin
         data_array = reshape(data_array, (size(data_array)..., 1))
     end
