@@ -1,11 +1,16 @@
 # Loadtxt.jl
 This is a package for loading a file.
 
-to install,
+# Install and usage
+```julia
+import Pkg;Pkg.add(path="https://github.com/akio-tomiya/Loadtxt.jl")
 ```
-import Pkg;Pkg.add(url="https://github.com/akio-tomiya/Loadtxt.jl")
+and
+```julia
+using Loadtxt
 ```
 
+# Example
 Let us consider a file ``Plaquette.txt`` is like,
 ```
 0  1.0 # plaq
@@ -48,15 +53,6 @@ If you want to make a plot of this file,
 julia> using Plots
 julia> x,y = data[:,1],data[:,2]
 julia> plot(x,y)
-```
-
-# Install and usage
-```julia
-import Pkg;Pkg.add(path="https://github.com/akio-tomiya/Loadtxt.jl")
-```
-and
-```julia
-using Loadtxt
 ```
 
 # Details
