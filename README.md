@@ -1,6 +1,11 @@
 # Loadtxt.jl
 This is a package for loading a file.
 
+to install,
+```
+import Pkg;Pkg.add(url="https://github.com/akio-tomiya/Loadtxt.jl")
+```
+
 Let us consider a file ``Plaquette.txt`` is like,
 ```
 0  1.0 # plaq
